@@ -11,7 +11,8 @@ COPY nginx.conf /etc/nginx/nginx.conf
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf	
 COPY sshd_config /etc/ssh/
 COPY init_container.sh /bin/
-COPY dist /home/site/wwwroot/
+RUN mkdir /home/site/wwwroot/dist
+COPY dist /home/site/wwwroot/dist
 
 EXPOSE 80 2222
 CMD ["/bin/init_container.sh"]
